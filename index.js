@@ -10,6 +10,7 @@ app.use(express.json())
 
 app.use('/api',require('./routes/productRoute'))
 app.use('/api',require('./routes/userRoute'))
+app.use('/api',require('./routes/cartRoute'))
 
 
 app.get('/', (req, res) => {
