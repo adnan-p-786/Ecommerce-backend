@@ -30,6 +30,17 @@ router.get('/get-cart/:userId',async(req,res)=>{
     }
 })
 
+router.get('/get-cart', async (req, res) => {
+    try {
+        const data = await cart.find()
+            .populate('user')
+            .populate('product');
+        res.status(200).json(data);
+    } catch (error) {
+        res.status(400).json(error);
+    }
+});
+
 
 router.put('/put-cart/:id',async(req,res)=>{
     try {
